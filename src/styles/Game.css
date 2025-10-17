@@ -190,6 +190,15 @@
 
 /* Responsive Design */
 @media (max-width: 600px) {
+  .game-board-wrapper {
+    width: 100%;
+  }
+  
+  .game-board {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .game-container {
     padding: 10px;
   }
@@ -241,6 +250,14 @@
   .x1024, .x2048 {
     font-size: 0.9rem;
   }
+  .game-board-wrapper {
+  display: inline-block;
+  touch-action: none; /* Prevents default touch behaviors */
+  user-select: none; /* Prevents text selection during swipe */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
 
   .game-title {
     font-size: 2rem;

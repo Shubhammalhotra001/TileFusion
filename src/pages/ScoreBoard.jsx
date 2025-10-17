@@ -9,10 +9,10 @@ const ScoreBoard = ({ score, bestScore, onRestart }) => {
           <div className="score-label">SCORE</div>
           <div className="score-value">{score}</div>
         </div>
-        <div className="score-container">
+        {/* <div className="score-container">
           <div className="score-label">BEST</div>
           <div className="score-value">{bestScore}</div>
-        </div>
+        </div> */}
       </div>
       <button className="new-game-btn" onClick={onRestart}>
         New Game
