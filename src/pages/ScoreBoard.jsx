@@ -15,7 +15,7 @@ const ScoreBoard = ({ score, bestScore, onRestart }) => {
         </div> */}
       </div>
       <button className="new-game-btn" onClick={onRestart}>
-        Play Again
+        Restart
       </button>
     </div>
   );
