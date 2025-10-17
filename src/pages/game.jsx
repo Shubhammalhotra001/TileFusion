@@ -96,7 +96,7 @@ const Game = () => {
     <div className="game-container">
       <div className="game-header">
         <h1 className="game-title">TileFusion</h1>
-        <p className="game-subtitle">Join the tiles and get to <strong>2048!</strong></p>
+        <p className="game-subtitle">Join the tiles and get to <strong>2048</strong></p>
       </div>
 
       <ScoreBoard 
@@ -117,7 +117,7 @@ const Game = () => {
       {gameStatus === GAME_STATUS.LOST && (
         <div className="game-over-overlay">
           <div className="game-over-message">
-            <h2>Game Over!</h2>
+            <h2>Game Over</h2>
             <p>No moves left</p>
             <p className="try-again">Better luck next time</p>
             <button className="restart-btn" onClick={resetGame}>

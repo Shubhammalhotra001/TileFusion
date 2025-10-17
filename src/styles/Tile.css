@@ -1,3 +1,4 @@
+/* Tile.css*/
 .tile {
   width: 100px;
   height: 100px;
@@ -6,80 +7,29 @@
   justify-content: center;
   font-size: 2rem;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 12px;
   transition: all 0.15s ease-in-out;
+  position: relative;
 }
 
 .tile-empty {
-  background-color: rgba(238, 228, 218, 0.35);
+  background: rgba(0, 51, 204, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.1);
 }
 
-/* Tile colors based on value */
-.x2 {
-  background-color: #eee4da;
-  color: #727371;
+/* Premium white glow animation */
+@keyframes whiteGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+  }
 }
 
-.x4 {
-  background-color: #ece0ca;
-  color: #727371;
-}
-
-.x8 {
-  background-color: #f4b17a;
-  color: white;
-}
-
-.x16 {
-  background-color: #f59575;
-  color: white;
-}
-
-.x32 {
-  background-color: #f57c5f;
-  color: white;
-}
-
-.x64 {
-  background-color: #f65d3b;
-  color: white;
-}
-
-.x128 {
-  background-color: #edce71;
-  color: white;
-  font-size: 1.8rem;
-}
-
-.x256 {
-  background-color: #edcc63;
-  color: white;
-  font-size: 1.8rem;
-}
-
-.x512 {
-  background-color: #edc651;
-  color: white;
-  font-size: 1.8rem;
-}
-
-.x1024 {
-  background-color: #eec744;
-  color: white;
-  font-size: 1.6rem;
-}
-
-.x2048 {
-  background-color: #ecc230;
-  color: white;
-  font-size: 1.6rem;
-}
-
-/* Tile animations */
-.tile:not(.tile-empty) {
-  animation: tileAppear 0.2s ease-in-out;
-}
-
+/* Tile appear animation */
 @keyframes tileAppear {
   0% {
     transform: scale(0);
@@ -88,5 +38,152 @@
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* Progressively darker blue tiles with white glow */
+.x2 {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  color: white;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x4 {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  color: white;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x8 {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  color: white;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x16 {
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+  color: white;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x32 {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  color: white;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x64 {
+  background: linear-gradient(135deg, #172d5f 0%, #1e3a8a 100%);
+  color: white;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x128 {
+  background: linear-gradient(135deg, #0f2a4d 0%, #172d5f 100%);
+  color: white;
+  font-size: 1.8rem;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x256 {
+  background: linear-gradient(135deg, #0d1f3c 0%, #0f2a4d 100%);
+  color: white;
+  font-size: 1.8rem;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x512 {
+  background: linear-gradient(135deg, #0a152b 0%, #0d1f3c 100%);
+  color: white;
+  font-size: 1.8rem;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x1024 {
+  background: linear-gradient(135deg, #070d1a 0%, #0a152b 100%);
+  color: white;
+  font-size: 1.6rem;
+  animation: whiteGlow 2s ease-in-out infinite;
+}
+
+.x2048 {
+  background: linear-gradient(135deg, #050810 0%, #070d1a 100%);
+  color: #00d4ff;
+  font-size: 1.6rem;
+  animation: whiteGlow 1.5s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.8),
+              inset 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+/* Tile appear animation */
+.tile:not(.tile-empty) {
+  animation: tileAppear 0.2s ease-in-out, whiteGlow 2s ease-in-out infinite 0.2s;
+}
+
+/* Responsive tile sizes */
+@media (max-width: 600px) {
+  .game-container {
+    padding: 10px;
+  }
+
+  .game-title {
+    font-size: 2.5rem;
+  }
+
+  .score-board {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .scores {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .new-game-btn {
+    width: 100%;
+  }
+
+  .game-board-wrapper {
+    width: 100%;
+  }
+
+  .game-board {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .tile {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+  }
+
+  .x128, .x256, .x512 {
+    font-size: 1.3rem;
+  }
+
+  .x1024, .x2048 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .tile {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+
+  .x128, .x256, .x512 {
+    font-size: 1rem;
+  }
+
+  .x1024, .x2048 {
+    font-size: 0.9rem;
   }
 }
