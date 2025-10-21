@@ -52,7 +52,7 @@
     -   💎 Progressive tile darkening - tiles get darker as values increase
     -   ✨ Premium white glow effects on all tiles
 -   **📈 Score System**:
-
+    -   🏆 Best score tracking (with localStorage persistence)
     -   📊 Current score display
     -   🎯 New Game button for instant restart
 -   **📱 Responsive Design**:
@@ -299,6 +299,7 @@ tilefusion/
 ### Scoring:
 
 -   Points awarded equal to the merged tile value
+-   Keep your best score displayed in the scoreboard
 
 * * * * *
 

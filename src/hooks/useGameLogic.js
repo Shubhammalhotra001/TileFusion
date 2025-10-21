@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import {
   BOARD_SIZE,
   INITIAL_TILES_COUNT,
@@ -16,11 +16,32 @@ import {
   cloneBoard
 } from './gameHelpers';
 
+// LocalStorage key for best score
+const BEST_SCORE_KEY = 'tilefusion_best_score';
+
 const useGameLogic = () => {
+  // Initialize bestScore from localStorage
   const [board, setBoard] = useState([]);
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
+  const [bestScore, setBestScore] = useState(() => {
+    try {
+      const savedBestScore = localStorage.getItem(BEST_SCORE_KEY);
+      return savedBestScore ? parseInt(savedBestScore, 10) : 0;
+    } catch (error) {
+      console.error('Error loading best score from localStorage:', error);
+      return 0;
+    }
+  });
   const [gameStatus, setGameStatus] = useState(GAME_STATUS.PLAYING);
+
+  // Save bestScore to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem(BEST_SCORE_KEY, bestScore.toString());
+    } catch (error) {
+      console.error('Error saving best score to localStorage:', error);
+    }
+  }, [bestScore]);
 
   // Initialize game board
   const initializeGame = useCallback(() => {
